@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>Testprotokoll v. 0.1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Orkade inte hanter keyboard shortcuts, så ett bibliotek för det (https://craig.is/killing/mice) -->
+	<script src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?a4098"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+		h1 {
+			text-align: center;
+		}
+		h2, 
+		h2 label {
+			font-weight: 300;
+		}
+		.checkbox-radio {
+			font-size: 2rem;
+			margin-right: 1rem;
+		}
+		.checkbox-radio label {
+			font-weight: normal;
+		}
+		.btn {
+			margin-right: 15px;
+		}
+		.btn-submit {
+			display: block;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>WCAG 2.1</h1>
+		<p>
+			WCAG är indelat i fyra "prinsiper":
+				<dl>
+					<dt>Perceivable</dt>
+					<dd>Information och användargränssnittets delar ska presenteras för användaren
+						på ett sätt som gör det <em>möjligt för användaren att uppfatta</em>.</dd>
+					<dt>Operable</dt>
+					<dd>Användargränssnittet delar måste vara möjliga för användaren att hantera.</dd>
+					<dt>Understandable</dt>
+					<dd>Användaren måste ha möjlighet att förstå information i användargränssnittet
+						samt möjlighet att förstå hur man interagerar med gränssnittet.</dd>
+					<dt>Robust</dt>
+					<dd>Informationen och gränssnittet måste vara tillräckligt robust för
+						att möjliggöra att gränssnittet kan användas med en bred variation av klienter
+						samt olika typer av tekniska hjälpmedel.</dd>
+				</dl>
+		</p>
+		<table>
+			<thead>
+				<th>Avsnitt</th>
+				<th>Kriteria</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Perceivable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.1</td>
+					<td>Text Alternatives</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.1.1</td>
+					<td>Non-text Content</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2</td>
+					<td>Time-based Media</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.1</td>
+					<td>Audio-only and Video-only (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.2</td>
+					<td>Captions (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.3</td>
+					<td>Audio Description or Media Alternative (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.4</td>
+					<td>Captions (Live)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.5</td>
+					<td>Audio Description (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.6</td>
+					<td>Sign Language (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.7</td>
+					<td>Extended Audio Description (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.8</td>
+					<td>Media Alternative (Prerecorded)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.2.9</td>
+					<td>Audio-only (Live)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3</td>
+					<td>Adaptable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.1</td>
+					<td>Info and Relationships</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.2</td>
+					<td>Meaningful Sequence</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.3</td>
+					<td>Sensory Characteristics</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.4</td>
+					<td>Orientation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.5</td>
+					<td>Identify Input Purpose</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.3.6</td>
+					<td>Identify Purpose</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4</td>
+					<td>Distinguishable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.1</td>
+					<td>Use of Color</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.2</td>
+					<td>Audio Control</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.3</td>
+					<td>Contrast (Minimum)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.4</td>
+					<td>Resize text</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.5</td>
+					<td>Images of Text</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.6</td>
+					<td>Contrast (Enhanced)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.7</td>
+					<td>Low or No Background Audio</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.8</td>
+					<td>Visual Presentation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.9</td>
+					<td>Images of Text (No Exception)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.10</td>
+					<td>Reflow</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.11</td>
+					<td>Non-text Contrast</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.12</td>
+					<td>Text Spacing</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>1.4.13</td>
+					<td>Content on Hover or Focus</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>Operable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.1</td>
+					<td>Keyboard Accessible</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.1.1</td>
+					<td>Keyboard</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.1.2</td>
+					<td>No Keyboard Trap</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.1.3</td>
+					<td>Keyboard (No Exception)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.1.4</td>
+					<td>Character Key Shortcuts</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2</td>
+					<td>Enough Time</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.1</td>
+					<td>Timing Adjustable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.2</td>
+					<td>Pause, Stop, Hide</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.3</td>
+					<td>No Timing</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.4</td>
+					<td>Interruptions</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.5</td>
+					<td>Re-authenticating</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.2.6</td>
+					<td>Timeouts</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.3</td>
+					<td>Seizures and Physical Reactions</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.3.1</td>
+					<td>Three Flashes or Below Threshold</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.3.2</td>
+					<td>Three Flashes</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.3.3</td>
+					<td>Animation from Interactions</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4</td>
+					<td>Navigable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.1</td>
+					<td>Bypass Blocks</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.2</td>
+					<td>Page Titled</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.3</td>
+					<td>Focus Order</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.4</td>
+					<td>Link Purpose (In Context)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.5</td>
+					<td>Multiple Ways</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.6</td>
+					<td>Headings and Labels</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.7</td>
+					<td>Focus Visible</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.8</td>
+					<td>Location</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.9</td>
+					<td>Link Purpose (Link Only)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.4.10</td>
+					<td>Section Headings</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5</td>
+					<td>Input Modalities</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.1</td>
+					<td>Pointer Gestures</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.2</td>
+					<td>Pointer Cancellation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.3</td>
+					<td>Label in Name</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.4</td>
+					<td>Motion Actuation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.5</td>
+					<td>Target Size</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2.5.6</td>
+					<td>Concurrent Input Mechanisms</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>Understandable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1</td>
+					<td>Readable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.1</td>
+					<td>Language of Page</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.2</td>
+					<td>Language of Parts</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.3</td>
+					<td>Unusual Words</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.4</td>
+					<td>Abbreviations</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.5</td>
+					<td>Reading Level</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.1.6</td>
+					<td>Pronunciation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2</td>
+					<td>Predictable</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2.1</td>
+					<td>On Focus</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2.2</td>
+					<td>On Input</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2.3</td>
+					<td>Consistent Navigation</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2.4</td>
+					<td>Consistent Identification</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.2.5</td>
+					<td>Change on Request</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3</td>
+					<td>Input Assistance</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.1</td>
+					<td>Error Identification</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.2</td>
+					<td>Labels or Instructions</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.3</td>
+					<td>Error Suggestion</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.4</td>
+					<td>Error Prevention (Legal, Financial, Data)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.5</td>
+					<td>Help</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3.3.6</td>
+					<td>Error Prevention (All)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td>Robust</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4.1</td>
+					<td>Compatible</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4.1.1</td>
+					<td>Parsing</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4.1.2</td>
+					<td>Name, Role, Value</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4.1.3</td>
+					<td>Status Messages</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td>Conformance</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.1</td>
+					<td>Interpreting Normative Requirements</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2</td>
+					<td>Conformance Requirements</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2.1</td>
+					<td>Conformance Level</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2.2</td>
+					<td>Full pages</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2.3</td>
+					<td>Complete processes</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2.4</td>
+					<td>Only Accessibility-Supported Ways of Using Technologies</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.2.5</td>
+					<td>Non-Interference</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.3</td>
+					<td>Conformance Claims (Optional)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.3.1</td>
+					<td>Required Components of a Conformance Claim</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.3.2</td>
+					<td>Optional Components of a Conformance Claim</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.4</td>
+					<td>Statement of Partial Conformance - Third Party Content</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5.5</td>
+					<td>Statement of Partial Conformance - Language</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		});
+	</script>
+
+
+
+</body>
+</html>
