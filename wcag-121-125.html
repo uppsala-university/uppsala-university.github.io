@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>WCAG 1.2.1 – 1.2.5 Time Based Media</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="wcag-style.css" />
+</head>
+<body>
+
+	<a class="sr-only sr-only-focusable" href="#main-content">Hoppa till innehållet</a>
+
+	<article id="main-content">
+		<h1>1.2.1 – 1.2.5 Time Based Media</h1>
+
+		<div class="">
+			<div class="l-maincontent">
+				<p>
+					<a href="https://www.w3.org/TR/WCAG21/#time-based-media">Guideline 1.2 Time-based Media</a>
+				</p>
+
+				<h2>1.2.1 A Audio-only and Video-only (Prerecorded)</h2>
+				<p>
+					Innehåll som är <em>enbart ljud</em> ska också presenteras i ett alternativt, <em>tidsoberoende</em> format (t.ex. text). 
+				<p>
+					Innehåll som är <em>enbart video</em> (alltså inte video+ljud) ska antingen presenteras i ett tidsoberoende format 
+					eller presenteras med ett ljudspår som förmedlar samma information som visas i videon. 
+				</p>
+				<p>
+					Undantaget är när ljud- eller video-media är ett <em>mediealternativ</em> till en text
+					och inte bidrar med ytterligare information än den som presenteras i texten.
+					T.ex. kan video användas i en webbaserad användarmanual
+					om den ingår i en artikel som presenterar samma information. Att videon är ett
+					alternativ till texten ska då vara tydligt uppmärkt.
+				</p>
+
+				<h2>1.2.2 A Captions (Prerecorded)</h2>
+				<p>
+					Ljud och video ska ha ett synkroniserat textalternativ (t.ex. undertext till video).
+					Undantaget är ljud eller video som är ett medialternativ till huvudinnehållet.
+				</p>
+
+				<h2>1.2.3 A Audio Description or Media Alternative (Prerecorded)</h2>
+				<p>
+					Tidsberoende media såsom ljud och video ska även presenteras i ett 
+					tidsoberoende format. Video kan också presenteras med syntolkning.
+					Undantaget är ljud eller video som är ett medialternativ till huvudinnehållet.
+				</p>
+
+				<h2>1.2.4 AA Captions (Live)</h2>
+				<p>
+					Direktsänt ljud ska även presenteras med textbeskrivning.
+				</p>
+
+				<h2>1.2.5 AA Audio Description (Prerecorded)</h2>
+				<p>
+					Direktsänd video ska även presenteras med en syntolkning.
+				</p>
+
+				<p>
+					Allt <em>icke-textbaserat innehåll</em> ska ha ett relaterat textalternativ.
+				</p>
+
+				<h2>Exempel</h2>
+				<p>
+					Så länge redaktörerna använder Youtube och liknande tjänster så borde det kunna
+					bli en helt redaktionell uppgift att se till att 1.2.1 – 1.2.5 uppfylls. 
+				</p>
+				<h3>
+					Vidare läsning: 
+				</h3>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track">&lt;track&gt; element</a></li>
+				</ul>
+			</div><!-- .l-maincontent -->
+		</div><!-- .l-container -->
+
+	</article>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		});
+
+		$('.toggle-list-level').click(function() {
+			$(this).toggleClass('active');
+			filterLevels();
+		});
+
+		function filterLevels() {
+			// Storing selected levels in array
+			levels = $('.toggle-list-level.active').map(function(){
+				return $.trim($(this).text()).length;
+			}).get();
+
+			// Hide all
+			$('tbody tr').hide();
+
+			// Display selected principles, guidelines and criterias
+			$.each(levels, function(index, level) {
+				// Show principles and guidelines
+				$('tr[data-type=principle], tr[data-type=guideline]').each(function() {
+					filterParentLevel($(this), level);
+				});
+
+				// Show success criterias
+				$('tbody tr[data-wcag-level=' + level + ']').show();
+			})
+		}
+
+		function filterParentLevel(parent, level) {
+			if ($.inArray(level, parent.data('wcag-levels')) !== -1) {
+				parent.show();
+			}
+		}
+
+		// Set levels for principles and guidelines by looping through all criterias
+		$('tbody tr').each(function() {
+			var type  = $(this).data('type');
+			var level = $(this).data('wcag-level');
+
+			if (type == 'principle' || type == 'guideline') {
+				return;
+			}
+
+			var principle = $(this).prevAll('[data-type=principle]:first');
+			var guideline = $(this).prevAll('[data-type=guideline]:first');
+
+			// Get current level arrays
+			var principleLevels = ( principle.data('wcag-levels') == undefined ? [] : principle.data('wcag-levels') );
+			var guidelineLevels = ( guideline.data('wcag-levels') == undefined ? [] : guideline.data('wcag-levels') );
+
+			// Add new levels if not already existing in array
+			( $.inArray(level, principleLevels) == -1 ? principleLevels.push(level) : null );
+			( $.inArray(level, guidelineLevels) == -1 ? guidelineLevels.push(level) : null );
+
+			// Add complete array of levels to the data attribute
+			principle.data('wcag-levels', principleLevels);
+			guideline.data('wcag-levels', guidelineLevels);
+		});
+
+		filterLevels();
+	</script>
+
+
+
+</body>
+</html>
