@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>WCAG 1.1.1 Non-text Content</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="wcag-style.css" />
+</head>
+<body>
+
+	<a class="sr-only sr-only-focusable" href="#main-content">Hoppa till innehållet</a>
+
+	<article id="main-content">
+		<h1 lang="en">1.1.1 Non-text Content</h1>
+
+		<div class="">
+			<div class="l-maincontent">
+				<blockquote lang="en">
+					All non-text content that is presented to the user has a text alternative that serves the equivalent purpose [...]
+				</blockquote>
+
+				<h2>Exempel</h2>
+				<div class="l-grid-50-50">
+
+					<div class="example example-wrong">
+						<h3>Fel</h3>
+						<code>
+<pre>
+&lt;a href="..."&gt;
+	&lt;img src="images/111-hamburger-icon-small.svg"&gt;
+&lt;/a&gt;
+</pre>
+						</code>
+						<hr>
+						<a href="..." lang="en"><img src="images/111-hamburger-icon-small.svg"></a>
+					</div>
+
+					<div class="example example-right">
+						<h3>Rätt</h3>
+						<code>
+<pre>
+&lt;a href="..."&gt;
+	&lt;img src="images/111-hamburger-icon-small.svg" <strong>alt="Menu"</strong>&gt;
+&lt;/a&gt;
+</pre>
+						</code>
+						<hr>
+						<a href="..." lang="en"><img src="images/111-hamburger-icon-small.svg" alt="Menu"></a>
+					</div>
+
+				</div><!-- .l-50-50 -->
+			</div><!-- .l-maincontent -->
+		</div><!-- .l-container -->
+
+	</article>
+
+	<script type="text/javascript">
+
+	</script>
+
+</body>
+</html>

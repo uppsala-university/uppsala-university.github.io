@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>1.3.2 Meaningful Sequence</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="wcag-style.css" />
+</head>
+
+<body>
+
+	<style>
+		.example-floats article {
+			display: grid;
+			grid-column-gap: 20px;
+			grid-template-columns: 1fr 1fr;
+		}
+		
+		.position-right {
+			background: #cccc;
+			padding: 5%;
+			grid-column: 2;
+			grid-row: 1;
+		}
+		
+		.position-left {
+			background: #f2f2f2;
+			padding: 5%;
+			grid-column: 1;
+			grid-row: 1;
+		}
+	</style>
+	
+	<a class="sr-only sr-only-focusable" href="https://martin-ekstrom.github.io/wcag-111.html#main-content">Hoppa till innehållet</a>
+
+	<article id="main-content">
+		<h1 lang="en">1.3.2 Meaningful Sequence</h1>
+
+		<div class="">
+			<div class="l-maincontent">
+			
+				<blockquote lang="en">
+					When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.
+				</blockquote>
+
+				<h2>Exempel</h2>
+				
+				<div class="l-grid-50-50">
+
+					<div class="example example-wrong">
+						<h3>Fel</h3>
+						<code>
+							<pre>
+&lt;article&gt;
+
+	&lt;div class="position-right"&gt;
+		&lt;a href="#" class="position-right"&gt;Andra sortgrupper&lt;/a&gt;
+	&lt;/div&gt;
+	
+	&lt;div class="position-left"&gt;
+		&lt;h1&gt;Paprika&lt;/h1&gt;
+		&lt;p&gt;Paprika är en sortgrupp inom arten spanskpeppar.&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;/article&gt;
+							</pre>
+						</code>
+						<hr>
+						<div class="example-floats">
+							<article>
+								<div class="position-right">
+									<a href="#">Andra sortgrupper</a>
+								</div>
+								<div class="position-left">
+									<h1>Paprika</h1>
+									<p>Paprika är en sortgrupp inom arten spanskpeppar.</p>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="example example-right">
+						<h3>Rätt</h3>
+						<code>
+							<pre>
+&lt;article&gt;
+
+	&lt;div class="position-left"&gt;
+		&lt;h1&gt;Paprika&lt;/h1&gt;
+		&lt;p&gt;Paprika är en sortgrupp inom arten spanskpeppar.&lt;/p&gt;
+	&lt;/div&gt;
+	
+	&lt;div class="position-right"&gt;
+		&lt;a href="#" class="position-right"&gt;Andra sortgrupper&lt;/a&gt;
+	&lt;/div&gt;
+
+&lt;/article&gt;							
+							</pre>
+						</code>
+						<hr>
+						<div class="example-floats">
+							<article>
+							
+								<div class="position-left">
+									<h1>Paprika</h1>
+									<p>Paprika är en sortgrupp inom arten spanskpeppar.</p>
+								</div>
+
+								<div class="position-right">
+									<a href="#">Andra sortgrupper</a>
+								</div>
+								
+							</article>
+						</div>
+					</div>
+
+				</div><!-- .l-50-50 -->
+			</div><!-- .l-maincontent -->
+		</div><!-- .l-container -->
+
+	</article>
+
+	<script type="text/javascript">
+
+	</script>
+
+
+</body></html>

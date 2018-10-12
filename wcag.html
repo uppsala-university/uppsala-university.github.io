@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<title>Web Content Accessibility Guidelines 2.1</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="wcag/wcag-style.css" />
+</head>
+<body>
+
+	<a class="sr-only sr-only-focusable" href="#main-content">Hoppa till innehållet</a>
+
+	<article id="main-content">
+		<h1>Web Content Accessibility Guidelines 2.1</h1>
+
+		<div class="">
+			<div class="l-maincontent">
+
+				<p><a href="https://www.w3.org/TR/WCAG21/">W3C Web Content Accessibility Guidelines 2.1</a></p>
+
+				<section class="filters is-hidden">
+					<p>Visa nivå:</p>
+					<div class="btn-group" role="group" aria-label="Filtrera vilka nivåer av riktlinjer som ska presenteras">
+						<button type="button" class="btn btn-secondary active toggle-list-level">A</button>
+						<button type="button" class="btn btn-secondary active toggle-list-level">AA</button>
+						<button type="button" class="btn btn-secondary toggle-list-level">AAA</button>
+					</div>
+				</section>
+				<table class="table wcag-table">
+					<thead>
+						<tr>
+							<th>Avsnitt</th>
+							<th>Nivå</th>
+							<th>Innehåll</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody lang="en">
+						<tr data-type="principle" class="wcag-principle">
+							<td>1</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#perceivable">Perceivable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>1.1</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#text-alternatives">Text Alternatives</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.1.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#non-text-content">Non-text Content</a></td>
+							<td><a href="wcag/wcag-111.html">Exempel</a></td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>1.2</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#time-based-media">Time-based Media</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.2.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#audio-only-and-video-only-prerecorded">Audio-only and Video-only (Prerecorded)</a></td>
+							<td><a href="wcag/wcag-121-125.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.2.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#captions-prerecorded">Captions (Prerecorded)</a></td>
+							<td><a href="wcag/wcag-121-125.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.2.3</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#audio-description-or-media-alternative-prerecorded">Audio Description or Media Alternative (Prerecorded)</a></td>
+							<td><a href="wcag/wcag-121-125.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.2.4</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#captions-live">Captions (Live)</a></td>
+							<td><a href="wcag/wcag-121-125.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.2.5</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#audio-description-prerecorded">Audio Description (Prerecorded)</a></td>
+							<td><a href="wcag/wcag-121-125.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.2.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#sign-language-prerecorded">Sign Language (Prerecorded)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.2.7</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#extended-audio-description-prerecorded">Extended Audio Description (Prerecorded)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.2.8</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#media-alternative-prerecorded">Media Alternative (Prerecorded)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.2.9</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#audio-only-live">Audio-only (Live)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>1.3</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#adaptable">Adaptable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.3.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">Info and Relationships</a></td>
+							<td><a href="wcag/wcag-131.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.3.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#meaningful-sequence">Meaningful Sequence</a></td>
+							<td><a href="wcag/wcag-132.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.3.3</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#sensory-characteristics">Sensory Characteristics</a></td>
+							<td><a href="wcag/wcag-133.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.3.4</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#orientation">Orientation</a></td>
+							<td><a href="wcag/wcag-134.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.3.5</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose">Identify Input Purpose</a></td>
+							<td><a href="wcag/wcag-135.html">Exempel</a></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.3.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#identify-purpose">Identify Purpose</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>1.4</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#distinguishable">Distinguishable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.4.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#use-of-color">Use of Color</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>1.4.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#audio-control">Audio Control</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.3</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">Contrast (Minimum)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.4</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#resize-text">Resize text</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.5</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#images-of-text">Images of Text</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.4.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">Contrast (Enhanced)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.4.7</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#low-or-no-background-audio">Low or No Background Audio</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.4.8</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">Visual Presentation</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>1.4.9</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#images-of-text-no-exception">Images of Text (No Exception)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.10</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#reflow">Reflow</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.11</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#non-text-contrast">Non-text Contrast</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.12</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#text-spacing">Text Spacing</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>1.4.13</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">Content on Hover or Focus</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="principle" class="wcag-principle">
+							<td>2</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#operable">Operable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>2.1</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible">Keyboard Accessible</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.1.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#keyboard">Keyboard</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.1.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#no-keyboard-trap">No Keyboard Trap</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.1.3</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#keyboard-no-exception">Keyboard (No Exception)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.1.4</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#character-key-shortcuts">Character Key Shortcuts</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>2.2</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#enough-time">Enough Time</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.2.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#timing-adjustable">Timing Adjustable</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.2.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide">Pause, Stop, Hide</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.2.3</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#no-timing">No Timing</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.2.4</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#interruptions">Interruptions</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.2.5</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#re-authenticating">Re-authenticating</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.2.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#timeouts">Timeouts</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>2.3</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#seizures-and-physical-reactions">Seizures and Physical Reactions</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.3.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold">Three Flashes or Below Threshold</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.3.2</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#three-flashes">Three Flashes</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.3.3</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#animation-from-interactions">Animation from Interactions</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>2.4</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#navigable">Navigable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.4.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">Bypass Blocks</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.4.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#page-titled">Page Titled</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.4.3</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#focus-order">Focus Order</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.4.4</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">Link Purpose (In Context)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>2.4.5</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#multiple-ways">Multiple Ways</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>2.4.6</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">Headings and Labels</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>2.4.7</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#focus-visible">Focus Visible</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.4.8</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#location">Location</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.4.9</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">Link Purpose (Link Only)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.4.10</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#section-headings">Section Headings</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>2.5</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#input-modalities">Input Modalities</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.5.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#pointer-gestures">Pointer Gestures</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.5.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#pointer-cancellation">Pointer Cancellation</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.5.3</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#label-in-name">Label in Name</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>2.5.4</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#motion-actuation">Motion Actuation</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.5.5</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#target-size">Target Size</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>2.5.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#concurrent-input-mechanisms">Concurrent Input Mechanisms</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="principle" class="wcag-principle">
+							<td>3</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#understandable">Understandable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>3.1</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#readable">Readable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>3.1.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#language-of-page">Language of Page</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>3.1.2</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#language-of-parts">Language of Parts</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.1.3</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#unusual-words">Unusual Words</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.1.4</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#abbreviations">Abbreviations</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.1.5</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#reading-level">Reading Level</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.1.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#pronunciation">Pronunciation</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>3.2</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#predictable">Predictable</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>3.2.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#on-focus">On Focus</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>3.2.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#on-input">On Input</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>3.2.3</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#consistent-navigation">Consistent Navigation</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>3.2.4</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#consistent-identification">Consistent Identification</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.2.5</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#change-on-request">Change on Request</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>3.3</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#input-assistance">Input Assistance</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>3.3.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#error-identification">Error Identification</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>3.3.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">Labels or Instructions</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>3.3.3</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">Error Suggestion</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>3.3.4</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#error-prevention-legal-financial-data">Error Prevention (Legal, Financial, Data)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.3.5</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#help">Help</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="3">
+							<td>3.3.6</td>
+							<td>AAA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#error-prevention-all">Error Prevention (All)</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="principle" class="wcag-principle">
+							<td>4</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#robust">Robust</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="guideline" class="wcag-guideline">
+							<td>4.1</td>
+							<td></td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#compatible">Compatible</a></td>
+							<td></td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>4.1.1</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#parsing">Parsing</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="1">
+							<td>4.1.2</td>
+							<td>A</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#name-role-value">Name, Role, Value</a></td>
+							<td>Exempel</td>
+						</tr>
+						<tr data-type="success-criteria" class="wcag-success-criteria" data-wcag-level="2">
+							<td>4.1.3</td>
+							<td>AA</td>
+							<td><a href="https://www.w3.org/TR/WCAG21/#status-messages">Status Messages</a></td>
+							<td>Exempel</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<aside class="l-aside facts is-hidden">
+				<h1>Kort om <abbr title="Web Content Accessibility Guidelines" lang="en">WCAG</abbr></h1>
+				<p>
+					<abbr title="Web Content Accessibility Guidelines" lang="en">WCAG</abbr> har en hierarkisk struktur som är indelad i tre nivåer: 
+				</p>
+				<ol>
+					<li>Principer</li>
+					<li>Riktlinjer</li>
+					<li>Framgångskriterier</li>
+				</ol>
+				<p>
+					Dessa tre delar är numrerade i följande upplägg: <br />
+					N Princip <br />
+					N.N Riktlinje <br />
+					N.N.N Framgångskriterium
+				</p>
+				<h2>Principer</h2>
+				<p>
+					Detta är den högsta nivån och den består av fyra delar:
+				</p>
+				<dl>
+					<dt>1. <dfn>Perceivable</dfn></dt>
+					<dd>Information och användargränssnittets delar ska presenteras för användaren
+						på ett sätt som gör det <em>möjligt för användaren att uppfatta</em>.</dd>
+					<dt>2. <dfn>Operable</dfn></dt>
+					<dd>Användargränssnittet delar måste vara möjliga för användaren att hantera.</dd>
+					<dt>3. <dfn>Understandable</dfn></dt>
+					<dd>Användaren måste ha möjlighet att förstå information i användargränssnittet
+						samt möjlighet att förstå hur man interagerar med gränssnittet.</dd>
+					<dt>4. <dfn>Robust</dfn></dt>
+					<dd>Informationen och gränssnittet måste vara tillräckligt robust för
+						att möjliggöra att gränssnittet kan användas med en bred variation av klienter
+						samt olika typer av tekniska hjälpmedel.</dd>
+				</dl>
+				<h2>Riktlinjer</h2>
+				<p>
+					Nästa nivå är <em>riktlinjer</em> som består av 12 delar.Riktlinjerna är tänkta
+					att vara de mål som utvecklare, designers och skapar av innehåll ska sträva mot
+					för att göra innehåll mer tillgängligt. 
+				</p>
+
+				<h2>Framgångskriterier</h2>
+				<p>
+					Framgångskriterierna är alla testbara, vissa via automatiserad
+					testning medan andra kräver en mänsklig utvärdering.
+				</p>
+				<p>
+					Det är framgångsgriterierna som 
+					<a href="https://webbriktlinjer.se/lagkrav/webbdirektivet/">Webbtillgänglighetsdirektivet</a> 
+					kräver att vi ska uppfylla.
+				</p>
+				<p>
+					Varje framgångskriterium
+					är är kategoriserad i en av de tre nivåerna: från lägsta nivån <em>A</em> till högsta nivån <em>AAA</em>.
+					Lägsta nivån, <em>A</em>, är den nivå som får högst negativ effekt för användarna om kriterierna 
+					i nivån inte uppfylls, medan högsta nivån, <em>AAA</em> har mindre påverkan eller påverkan på en
+					mindre grupp användare. Kravet i Webbtillgänglighetsdirektivet är att vi ska
+					uppfylla nivå <em>A</em> och <em>AA</em>.
+				</p>
+			</aside>
+		</div><!-- .l-container -->
+
+	</article>
+
+	<script type="text/javascript">
+		$('.toggle-list-level').click(function() {
+			$(this).toggleClass('active');
+			$('.wcag-table tbody').hide();
+			$.when(filterLevels()).done(function() {
+				$('.wcag-table tbody').fadeIn('fast');
+			});
+		});
+
+		function filterLevels() {
+			// Storing selected levels in array
+			levels = $('.toggle-list-level.active').map(function(){
+				return $.trim($(this).text()).length;
+			}).get();
+
+			// Hide all
+			$('tbody tr').hide();
+
+			// Display selected principles, guidelines and criterias
+			$.each(levels, function(index, level) {
+				// Show principles and guidelines
+				$('tr[data-type=principle], tr[data-type=guideline]').each(function() {
+					filterParentLevel($(this), level);
+				});
+
+				// Show success criterias
+				$('tbody tr[data-wcag-level=' + level + ']').show();
+			});
+
+			return true;
+		}
+
+		function filterParentLevel(parent, level) {
+			if ($.inArray(level, parent.data('wcag-levels')) !== -1) {
+				parent.show();
+			}
+		}
+
+		// Set levels for principles and guidelines by looping through all criterias
+		$('tbody tr').each(function() {
+			var type  = $(this).data('type');
+			var level = $(this).data('wcag-level');
+
+			if (type == 'principle' || type == 'guideline') {
+				return;
+			}
+
+			var principle = $(this).prevAll('[data-type=principle]:first');
+			var guideline = $(this).prevAll('[data-type=guideline]:first');
+
+			// Get current level arrays
+			var principleLevels = ( principle.data('wcag-levels') == undefined ? [] : principle.data('wcag-levels') );
+			var guidelineLevels = ( guideline.data('wcag-levels') == undefined ? [] : guideline.data('wcag-levels') );
+
+			// Add new levels if not already existing in array
+			( $.inArray(level, principleLevels) == -1 ? principleLevels.push(level) : null );
+			( $.inArray(level, guidelineLevels) == -1 ? guidelineLevels.push(level) : null );
+
+			// Add complete array of levels to the data attribute
+			principle.data('wcag-levels', principleLevels);
+			guideline.data('wcag-levels', guidelineLevels);
+		});
+
+		filterLevels();
+	</script>
+
+
+
+</body>
+</html>
+
+
