@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Söktest v 0.1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript">
+		var searchers = [
+			{ 'environment': 'test', 'searcher': 'all' },
+			{ 'environment': 'prod', 'searcher': 'all' }
+		];
+	</script>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			padding: 20px;
+		}
+		.searcher {
+			max-width: 400px;
+			margin: 40px auto;
+		}
+		.searchers {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.no-search .searchers{
+			display: none;
+		}
+		.searcher-box {
+			flex: 1;
+			flex-basis: 24%;
+			margin: 2px;
+			min-height: 300px;
+			border-top: 10px solid #aad;
+		}
+		.searcher-link {
+			font-size: 0.9rem;
+		}
+		[class*=searcher-box-en] {
+			border-color: #add;
+		}
+		.result-list {
+			padding-left: 20px;
+		}
+		.result-list:empty {
+			padding: 0;
+		}
+		.result-list:empty::before {
+			content: "Inga träffar";
+			color: #a00;
+		} 
+		.result-list em {
+			background-color: #ff7;
+			font-style: normal;
+		}
+		.test-env #banner, 
+		.test-env #group_name,
+		.test-env .groupNavigation {
+			display: none;
+		}
+		
+	</style>
+</head>
+<body class="no-search">
+	<input type="text" class="searcher form-control" />
+	<div class="searchers"></div>
+
+	<script type="text/javascript">
+		document.domain = "mp.uu.se";
+
+		var getUrlParameter = function getUrlParameter(sParam) {
+			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+			for (i = 0; i < sURLVariables.length; i++) {
+				sParameterName = sURLVariables[i].split('=');
+
+				if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		};
+
+		// Generate search result divs 
+		$.each(searchers, function(key, searcher) {
+			var searcherBox = $('<div></div>')
+								.addClass('searcher-box')
+								.addClass('searcher-box-' + searcher.searcher + '-' + searcher.environment)
+								.append($('<h3>' + searcher.searcher + ' ' + searcher.environment + '</h3>'));
+			$('.searchers').append(searcherBox);
+		})
+
+		$('.searcher').on('keydown', _.debounce(function() {
+				var searchString = $(this).val();
+				$('body').removeClass('no-search');
+				console.log("söker");
+				$.each(searchers, function(key, searcher) {
+					var searcherBox = $('.searcher-box-' + searcher.searcher + '-' + searcher.environment);
+					searcherBox.append($('<p></p>').text('Söker...'));
+					fetchI3ResultList(searcherBox, searchString, searcher.environment, searcher.searcher);
+				});
+		}, 500));
+
+		function fetchI3ResultList(resultContainer, query, environment, searcher) {
+			var baseUrl = (environment == "test" ? 'https://test.mp.uu.se' : 'https://mp.uu.se' );
+			var searchUrl = baseUrl + '/c/es/search?ffq=&start=0&rows=10&type=' + searcher + '&q=' + encodeURI(query);
+			console.log(searchUrl);
+			// Clean up from prev search
+			$('ol, p', resultContainer).remove();
+			resultContainer.append($('<p>Söker...</p>').addClass('message-searching'));
+
+			$.ajax({
+  				dataType: "json",
+				url: searchUrl,
+				xhrFields: {
+			         withCredentials: true
+			    },
+				headers: {
+					"accept": "application/json",
+					"Access-Control-Allow-Origin":"*"
+				}
+			}).done(function(data) {
+				var resultList = $('<ol></ol>').addClass('result-list');
+				var color, listElement, title, url, link = '';
+				var count = 0;
+				resultContainer.append($('<p class="searcher-link"><a href="' + searchUrl + '" target="_BLANK">Sök-URL</a> (nytt fönster)</p>'));
+				$.each(data.hl, function(key, documentItem) {
+					//signature = documentItem.signature.toString();
+					//color = '#' + signature.substring(signature.length-6, signature.length);
+					url = data.docs[count].url;
+					title = documentItem.title;
+
+					// A few uggly fixes...
+					// ... for URL
+					url = url.indexOf('/c/perm/link') === 0 ? baseUrl + url : url;
+					url = url.indexOf('/web') === 0 ? baseUrl + url : url;
+					// ... for title
+					title = title == undefined ? documentItem.title_sv : title;
+					title = title == undefined ? documentItem.ai_title_sv : title;
+					title = title == undefined ? documentItem.ai_art_title_sv : title;
+					title = title == undefined ? documentItem.displayName : title;
+
+					link = (url != undefined ? '<a href="' + url + '">' + url + '</a>' : '');
+
+					listElement = $('<li></li>').html(title + '<br>' + link);
+												//.css('background-color', color);
+					resultList.append(listElement);
+					count++;
+				});
+				$('p.message-searching', resultContainer).remove();
+				resultContainer.append(resultList);
+			});
+		}
+
+		/** If the URL has a query parameter (prod fetching search result from test), we just search 
+		 * on that query directly and present a clean page that can be iframed
+		 */
+		if (getUrlParameter('query')) {
+			var searchString = getUrlParameter('query');
+			$('.searcher').attr('value', searchString).keydown();
+			$('body').addClass('test-env');
+			$('.searcher-box-all-test').show();
+		}
+	</script>
+</body>
+</html>
