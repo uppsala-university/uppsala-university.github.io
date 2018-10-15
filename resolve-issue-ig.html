@@ -17,7 +17,8 @@
 		}
 
 		h2,
-		h2 label {
+		h2 label,
+		h3 label {
 			font-weight: 300;
 		}
 
@@ -44,7 +45,7 @@
 <body>
 
 	<div class="container">
-		<h1>Release Notes</h1>
+		<h1>Löst ärende</h1>
 		<section class="releasenotes">
 			<form class="releasenotes-form releasenotes-visible">
 				<input type="submit" name="" class="btn btn-primary btn-submit" value="Klar">
@@ -54,6 +55,11 @@
 
 	<script type="text/javascript">
 		var elements = [
+			['test-header', 'Testinstruktioner', 'header', null],
+			['test-instructions', 'Instruktioner', 'textarea', null],
+			['test-js', 		'JavaScript-ändringar?',			'radio', 		['Ja', 'Nej']],
+			['test-css', 		'CSS-ändringar?',			'radio', 		['Ja', 'Nej']],
+			['releasenotes-header', 'Release Notes', 'header', null],
 			['code-change', 'Teknisk förändring', 'textarea', null],
 			['ui-change', 'Gränssnittsförändring', 'textarea', null],
 			['known-errors', 'Kända fel', 'textarea', null],
@@ -72,7 +78,7 @@
 			var values = element[3];
 
 			if (values instanceof Array) {
-				var headline = $('<h2></h2>').text(label);
+				var headline = $('<h3></h3>').text(label);
 				submitBtn.before(headline);
 				values.forEach(function (value, valueIndex, valueArray) {
 					theElement = valueToElement(name, value, type);
@@ -90,13 +96,19 @@
 			var theElement, elementGroup = $('<div></div>');
 			var theLabel = $('<label></label>')
 				.html(label + ' <small>(' + genShortcut(keyShortcut) + ')</small>');
-			switch (type) {
+				switch (type) {
+				case 'header':
+				    theElement = $('<h2>' + label + '</h2>')
+					theElement.attr('name', name)
+						.attr('id', name);
+					elementGroup.append(theElement);
+					break;
 				case 'textarea':
 					theElement = $('<textarea></textarea>')
 						.attr('rows', 3)
 						.addClass('form-control');
 					theLabel.attr('for', name);
-					theLabel = theLabel.wrap('<h2></h2>').parent();
+					theLabel = theLabel.wrap('<h3></h3>').parent();
 					theElement.attr('name', name)
 						.attr('id', name);
 					elementGroup.append(theLabel);
