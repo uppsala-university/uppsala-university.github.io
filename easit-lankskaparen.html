@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+	<title>Easit-länkskaparen</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+		body {
+			font-size: 2em;
+			text-align: center;
+		}
+		label {
+			margin: 3em 0;
+		}
+		input[type="text"] {
+			font-size: 3em;
+			text-align: center;
+		}
+		#link {
+			display: block;
+			font-size: 2em; 
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Easit-länkskaparen</h1>
+		<label>Ärendenummer: <br><input type="text" /></label>
+		<a href="#" id="link"></a>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Hanterar "spara"
+			$('input').on('keyup', function() {
+				var id = $(this).val().replace('#', '');
+				var url = 'https://uu.easit.net/zk/openItem/sequenceId/' + id + '/moduleId/1003/';
+				if (isNaN(id) || !id) {
+					$('#link').text('').prop('href', '#');
+				}
+				else {
+					$('#link').text(url).prop('href', url);
+				}
+			});
+		});
+	</script>
+
+
+
+</body>
+</html>
