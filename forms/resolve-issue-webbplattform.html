@@ -67,7 +67,7 @@
         ['review', 'Granskningsinstruktioner', 'textarea', null],
         ['review-description', 'Ange vad som ska granskas och länka till koden om sådan finns, alternativt demo/videoinspelning om det inte finns kod.', 'description', null],
         ['deploy-instructions', 'Driftsättningsinstruktioner', 'textarea', null],
-        ['deploy-description', 'Ange vad som ska driftsättas. Inte jätteviktigt att det finns under utvecklingsfasen före första lansering.', 'description', null],
+        ['deploy-description', 'Ange vad som ska driftsättas. Kom ihåg att instruktioner för eventuella mallförändringar eller andra manuella inställningar ska finnas med.', 'description', null],
       ];
       var keyShortcut = 1;
 
@@ -203,7 +203,7 @@
                 value = $('[name=' + name + ']').val();
             }
 
-            if (typeof value !== 'undefined' && value) {
+            if (typeof value !== 'undefined') {
               output += '*' + label + '*<br><br>';
               output += value + '<br><br>';
             }
