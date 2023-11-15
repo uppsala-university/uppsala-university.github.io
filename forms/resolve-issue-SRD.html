@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <title>releasenotes v. 0.3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Orkade inte hanter keyboard shortcuts, så ett bibliotek för det (https://craig.is/killing/mice) -->
+    <script src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?a4098"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <style type="text/css">
+      h1 {
+        text-align: center;
+      }
+
+      h2,
+      h3,
+      h2 label,
+      h3 label {
+        font-weight: 300;
+      }
+
+      .checkbox-radio {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+
+      .checkbox-radio label {
+        font-weight: normal;
+      }
+
+      .btn {
+        margin-right: 15px;
+      }
+
+      .btn-submit {
+        display: block;
+        margin-top: 20px;
+      }
+
+      div.releasenotes-result p {
+        border: 1px solid #000;
+        padding: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Löst ärende SRD/Evighetsrunor</h1>
+      <section class="releasenotes">
+        <form class="releasenotes-form releasenotes-visible">
+          <input type="submit" name="" class="btn btn-primary btn-submit" value="Klar" />
+        </form>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      var elements = [
+        ['form-instructions', '[Fält som lämnas tomma kommer inte med i den genererade texten.]', 'description', null],
+        ['test-header', 'Testinstruktioner', 'header', null],
+        ['test-description', 'Beskriv vad som ska testas. Tydligt, men lämna också utrymme för testaren att hitta egna anfallsvinklar. Länka till det som ska testas eller förklara med ord var i gränssnittet testet ska ske.', 'description', null],
+        ['test-instructions', 'Instruktioner', 'textarea', null],
+        ['releasenotes-header', 'Release Notes', 'header', null],
+        ['change', 'Förändring', 'textarea', null],
+        ['change-description', 'Beskriv vad ärendet medför för förändring. I gränssnittet och/eller tekniskt.', 'description', null],
+        ['pr', 'Kodgranskning: PR-länk', 'textarea', null],
+        ['pr-description', 'Länk till Pull Request, om sådan finns. Exempel: <a href="https://tfs.its.uu.se/DefaultCollection/_git/SRD/pullrequest/424?_a=overview">https://tfs.its.uu.se/DefaultCollection/_git/SRD/pullrequest/424?_a=overview</a>.', 'description', null],
+        ['review', 'Kodgranskning: instruktioner', 'textarea', null],
+        ['review-description', 'Ange vad som eventuellt ska granskas utöver Pull Requesten. Det kan t ex vara driftsättningsinstruktioner eller liknande.', 'description', null],
+        ['deploy-instructions', 'Driftsättningsinstruktioner', 'textarea', null],
+        ['deploy-description', 'Ange vad som ska driftsättas. Kom ihåg att instruktioner för manuella inställningar och liknande ska finnas med.', 'description', null],
+      ];
+      var keyShortcut = 1;
+
+      // Bygger upp formuläret
+      var submitBtn = $('.releasenotes-form [type=submit]');
+      elements.forEach(function (element, elementIndex, elementArray) {
+        var name = element[0];
+        var label = element[1];
+        var type = element[2];
+        var values = element[3];
+        var theElement;
+
+        if (values instanceof Array) {
+          var headline = $('<h3></h3>').text(label);
+          submitBtn.before(headline);
+          values.forEach(function (value, valueIndex, valueArray) {
+            theElement = valueToElement(name, value, type);
+            submitBtn.before(theElement);
+          });
+        } else {
+          theElement = valueToElement(name, label, type);
+          submitBtn.before(theElement);
+        }
+      });
+
+      // Fixar ett element i formuläret
+      function valueToElement(name, label, type) {
+        var theElement,
+            theLabel,
+          elementGroup = $('<div></div>');
+        switch (type) {
+          case 'header':
+            theElement = $('<h2>' + label + '</h2>');
+            theElement.attr('name', name).attr('id', name);
+            elementGroup.append(theElement);
+            break;
+          case 'textarea':
+            theElement = $('<textarea></textarea>').attr('rows', 3).addClass('form-control');
+            theLabel = $('<label></label>').html(label + ' <small>(' + genShortcut(keyShortcut) + ')</small>');
+            keyShortcut++;
+            theLabel.attr('for', name);
+            theLabel = theLabel.wrap('<h3></h3>').parent();
+            theElement.attr('name', name).attr('id', name);
+            elementGroup.append(theLabel);
+            elementGroup.append(theElement);
+            break;
+          case 'text':
+            theElement = $('<input />').attr('type', type).addClass('form-control');
+            theLabel = $('<label></label>').html(label + ' <small>(' + genShortcut(keyShortcut) + ')</small>');
+            keyShortcut++;
+            theLabel.append(theElement);
+            theElement.attr('name', name).attr('id', name);
+            elementGroup.append(theLabel);
+            break;
+          case 'radio':
+          case 'checkbox':
+            theElement = $('<input />').attr('type', type).attr('value', label);
+            elementGroup.addClass(type + '-inline').addClass('checkbox-radio');
+            theElement.attr('name', name).attr('id', name);
+            theLabel = $('<label></label>').html(label + ' <small>(' + genShortcut(keyShortcut) + ')</small>');
+            keyShortcut++;
+            theLabel.prepend(theElement);
+            elementGroup.append(theLabel);
+            break;
+          case 'description':
+            theElement = $('<p>' + label + '<p>');
+            elementGroup.append(theElement);
+            break;
+        }
+
+        // Create key shortcut
+        console.log('gen shortcut: ' + genShortcut(keyShortcut) + 'for ' + name);
+        Mousetrap.bind(genShortcut(keyShortcut), function (e) {
+          switch (type) {
+            case 'textarea':
+              e.preventDefault();
+              theElement.focus();
+              break;
+            case 'radio':
+            case 'checkbox':
+              theElement.click();
+              break;
+          }
+        });
+
+        return elementGroup;
+      }
+
+      // Returns shortcut prefix if needed
+      function genShortcut(shortcut) {
+        var prefix;
+        switch (true) {
+          case shortcut >= 20:
+            prefix = 'e';
+            break;
+          case shortcut >= 10:
+            prefix = 'ctrl';
+            break;
+          default:
+            prefix = '';
+        }
+        return (prefix ? prefix + '+' : '') + shortcut.toString().substr(shortcut.toString().length - 1);
+      }
+
+      // Taken from https://stackoverflow.com/questions/2919337/jquery-convert-line-breaks-to-br-nl2br-equivalent
+      function nl2br(str, is_xhtml) {
+        var breakTag = is_xhtml || typeof is_xhtml === 'undefined' ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+      }
+
+      $(document).ready(function () {
+        // Hanterar "spara"
+        $('.releasenotes').on('submit', '.releasenotes-form', function (e) {
+          e.preventDefault();
+          var output = '';
+          var outputs = [['', '', '']]; // [[name, header, output], ...]
+          var outputindex = 0;
+          elements.forEach(function (element, index, array) {
+            var name = element[0];
+            var label = element[1];
+            var type = element[2];
+            var values = element[3];
+
+            // Fetch result
+            switch (type) {
+              case 'textarea':
+                value = nl2br($('[name=' + name + ']').val());
+                break;
+              case 'radio':
+                value = $('[name=' + name + ']:checked').val();
+                break;
+              case 'checkbox':
+                value = $('[name=' + name + ']:checked')
+                  .map(function () {
+                    return '* ' + this.value;
+                  })
+                  .get()
+                  .join('<br>');
+                break;
+              case 'header':
+                outputs.push([name.substring(0, name.indexOf('-header')), label, '']);
+                outputindex++;
+                break;
+              default:
+                value = $('[name=' + name + ']').val();
+            }
+
+            if (typeof value !== 'undefined') {
+              outputs[outputindex][2] += '*' + label + '*<br><br>';
+              outputs[outputindex][2] += value + '<br><br>';
+            }
+          });
+
+          $('.releasenotes-form').fadeOut(250, function () {
+            var resultContainer = $('.releasenotes-result');
+            // On first run we generate the dom structure
+            if (resultContainer.length == 0) {
+              resultContainer = $('<div></div>').addClass('releasenotes-result releasenotes-hidden').hide();
+              var btn = $('<button></button>').addClass('btn');
+              outputs.forEach(function (element, index, array) {
+                // skip possible starting headerless field if empty
+                if (element[1] !== '' || element[2] !== '') {
+                  header = $(`<h2>${element[1]}</h2>`)
+                  result = $(`<p contenteditable class="${element[0]}-text focus-target"></p>`);
+                  result.html(element[2]);
+                  var copyBtn = btn
+                    .clone()
+                    .text('Kopiera')
+                    .addClass('btn-primary')
+                    .click(function () {
+                      $(`.${element[0]}-text`).focus();
+                      document.execCommand('selectAll', false, null);
+                      document.execCommand('copy');
+                    });
+                    resultContainer.append(header).append(result).append(copyBtn).append('<br/>');
+                }
+              });
+
+              var backBtn = btn
+                .clone()
+                .text('Ändra')
+                .click(function () {
+                  pageSwitch();
+                });
+              var newBtn = btn
+                .clone()
+                .text('Nytt protokoll')
+                .click(function () {
+                  $('.releasenotes-form').trigger('reset');
+                  pageSwitch();
+                });
+              resultContainer.append('<br/>').append(backBtn).append(newBtn);
+              $('.releasenotes-form').after(resultContainer);
+            }
+            pageSwitch(function () {
+              $('.focus-target')[0].focus();
+              document.execCommand('selectAll', false, null);
+              document.execCommand('copy');
+              //document.designMode = "off";
+            });
+          });
+        });
+
+        function pageSwitch(callback) {
+          $('.releasenotes-visible').fadeOut(250, function () {
+            $('.releasenotes-hidden').fadeIn(250, function () {
+              $(this).removeClass('releasenotes-hidden').addClass('releasenotes-visible');
+              if (typeof callback !== 'undefined') {
+                callback();
+              }
+            });
+            $(this).removeClass('.releasenotes-visible').addClass('releasenotes-hidden');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
