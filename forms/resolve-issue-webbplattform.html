@@ -218,15 +218,12 @@
 
             if (typeof value !== 'undefined') {
               outputs[outputindex][2] += '*' + label + '*<br><br>';
-              outputs[outputindex][2] += value + '<br><br>';
+              outputs[outputindex][2] += value + '<br><br>'; 
             }
           });
 
-          $('.releasenotes-form').fadeOut(250, function () {
-            var resultContainer = $('.releasenotes-result');
-            // On first run we generate the dom structure
-            if (resultContainer.length == 0) {
-              resultContainer = $('<div></div>').addClass('releasenotes-result releasenotes-hidden').hide();
+          $('.releasenotes-form').fadeOut(250, function () {        
+            var resultContainer = $('<div></div>').addClass('releasenotes-result releasenotes-hidden').hide();
               var btn = $('<button></button>').addClass('btn');
               outputs.forEach(function (element, index, array) {
                 // skip possible starting headerless field if empty
@@ -234,6 +231,7 @@
                   header = $(`<h2>${element[1]}</h2>`)
                   result = $(`<p contenteditable class="${element[0]}-text focus-target"></p>`);
                   result.html(element[2]);
+                  
                   var copyBtn = btn
                     .clone()
                     .text('Kopiera')
@@ -251,6 +249,7 @@
                 .clone()
                 .text('Ändra')
                 .click(function () {
+                  resultContainer.remove();
                   pageSwitch();
                 });
               var newBtn = btn
@@ -258,13 +257,15 @@
                 .text('Nytt protokoll')
                 .click(function () {
                   $('.releasenotes-form').trigger('reset');
+                  resultContainer.remove();
                   pageSwitch();
                 });
               resultContainer.append('<br/>').append(backBtn).append(newBtn);
               $('.releasenotes-form').after(resultContainer);
-            }
+          
+            
             pageSwitch(function () {
-              $('.focus-target')[0].focus();
+              $('.focus-target')[0].focus();     
               document.execCommand('selectAll', false, null);
               document.execCommand('copy');
               //document.designMode = "off";
